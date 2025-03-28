@@ -1,2 +1,4 @@
 # test-repo-version-update
-A test repo to check the working of a github action to add version numbers automatically
+
+# Host Code
+> Version: HOST_SW_HASW_MothersonNoida_13_March_Build_2
