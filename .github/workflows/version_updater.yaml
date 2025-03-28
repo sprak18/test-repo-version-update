@@ -1,0 +1,24 @@
+name: Increment Build Version
+
+on:
+  push:
+
+jobs:
+  increment-version:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Git
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Increment Build Number in README
+        run: |
+          sed -E -i 's/(.*[^0-9])([0-9]+)/echo "\1$((\2 + 1))"/e' README.md
+          git add README.md
+          git commit -m "Auto-increment build number"
+          git push
