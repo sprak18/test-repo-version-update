@@ -3,6 +3,9 @@ name: Increment Build Version
 on:
   push:
 
+permissions:
+  contents: write
+
 jobs:
   increment-version:
     runs-on: ubuntu-latest
