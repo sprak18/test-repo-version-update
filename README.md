@@ -1,5 +1,5 @@
 # Host Code
-> Version: 3.3.2 Alpha 6
+> Version: 3.3.2 Alpha 7
 
 This repository is to store the full source that is used to create builds for use on the Main Raspberry Pi.
 
