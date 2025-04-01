@@ -24,10 +24,9 @@ jobs:
       - name: Increment Build Number in README
         run: |
           if grep -q "^> Version: " README.md; then
-            sed -E -i 's/^(> Version: [^0-9]*)([0-9]+)$/\1$((\2 + 1))/' README.md
+            sed -E -i 's/^(> Version: .*[^0-9])([0-9]+)$/\1'$((\2 + 1))'/' README.md
             git add README.md
             git commit -m "Auto-increment build number"
-            git pull --rebase origin $(git rev-parse --abbrev-ref HEAD)
             git push
           else
             echo "Version string not found, skipping update."
