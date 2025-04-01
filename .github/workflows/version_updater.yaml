@@ -23,7 +23,9 @@ jobs:
 
       - name: Increment Build Number in README
         run: |
-          sed -E -i 's/^(Version: .*[^0-9])([0-9]+)$/\1$((\2 + 1))/' README.md
+          if grep -q "^Version: " README.md; then
+            sed -E -i 's/^(Version: .*[^0-9])([0-9]+)$/echo "\1$((\2 + 1))"/e' README.md
+          fi
           git add README.md
           git commit -m "Auto-increment build number"
           git push
